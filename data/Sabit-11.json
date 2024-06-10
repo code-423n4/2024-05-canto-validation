@@ -1,0 +1,8 @@
+{
+  "contest": 385,
+  "handle": "Sabit",
+  "risk": "3",
+  "title": "setupLegacyKeyTables function for subsequent keyTable initialization will be skipped and not initialized without the function reverting when a keyTable has been initialized",
+  "issueId": 11,
+  "issueUrl": "https://github.com/code-423n4/2024-05-canto-validation/issues/11"
+}
