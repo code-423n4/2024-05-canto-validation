@@ -59,3 +59,46 @@ if err != nil {
 }
 `
 
+4.Redundant AccAddress check
+The code first check if msg.Receiver address returns an error here:
+
+`	_, err := sdk.AccAddressFromBech32(msg.Receiver)
+	if err != nil {
+		return nil, errorsmod.Wrap(err, "invalid receiver address")
+	}`
+
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L97C1-L100C3
+
+Down the line of code, the second check is here:
+
+`	// Error checked during msg validation
+	receiver := sdk.MustAccAddressFromBech32(msg.Receiver)`
+
+Here's the MustAccAddressFromBech32 function:
+
+`// MustAccAddressFromBech32 calls AccAddressFromBech32 and panics on error.
+func MustAccAddressFromBech32(address string) AccAddress {
+	addr, err := AccAddressFromBech32(address)
+	if err != nil {
+		panic(err)
+	}
+
+	return addr
+}`
+
+https://github.com/cosmos/cosmos-sdk/blob/d3d6448eca2c255adcd2176a4e18d21d6c798603/types/address.go#L182C1-L189C2
+
+MustAccAddressFromBech32 function also calls AccAddressFromBech32 and returns error if error is not nil - practically also re-checking the previous check.
+
+It's suggested the code below should be removed to avoid redundancy:
+
+`_, err := sdk.AccAddressFromBech32(msg.Receiver)
+	if err != nil {
+		return nil, errorsmod.Wrap(err, "invalid receiver address")
+	}`
+
+
+
+
+
+
