@@ -90,6 +90,9 @@ https://github.com/cosmos/cosmos-sdk/blob/d3d6448eca2c255adcd2176a4e18d21d6c7986
 
 MustAccAddressFromBech32 function also calls AccAddressFromBech32 and returns error if error is not nil - practically also re-checking the previous check.
 
+Similar issue is also here:
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L38C1-L52C1
+
 It's suggested the code below should be removed to avoid redundancy:
 
 `_, err := sdk.AccAddressFromBech32(msg.Receiver)
