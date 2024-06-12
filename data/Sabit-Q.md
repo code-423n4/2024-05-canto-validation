@@ -59,6 +59,7 @@ if err != nil {
 }
 `
 
+
 4.Redundant AccAddress check
 The code first check if msg.Receiver address returns an error here:
 
@@ -101,7 +102,21 @@ It's suggested the code below should be removed to avoid redundancy:
 	}`
 
 
+5.  Incorrect handling of non-contract accounts in token pair deletion
 
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L62-L70
+
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L121-L129
+
+Let's consider a scenario where a token pair has been created with an address that has never been a contract account (i.e., a regular non-contract account).
+
+In the ConvertCoin or ConvertERC20 function, when the code checks for a self-destructed contract, it will incorrectly identify the non-contract account as a self-destructed contract.
+
+The code will proceed to delete the token pair from, even though the associated account has never been a contract account. Whereas, the code should only delete the token pair if the associated account was previously a valid ERC20 contract account and has been self-destructed.
+
+If the account has never been a contract account, the token pair should not be deleted, or a specific error should be returned to indicate an invalid account.
+
+It's suggested that when returning an error, the code should distinguish between self-destructed contract accounts and non-contract accounts.
 
 
 
