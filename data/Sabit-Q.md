@@ -118,5 +118,32 @@ If the account has never been a contract account, the token pair should not be d
 
 It's suggested that when returning an error, the code should distinguish between self-destructed contract accounts and non-contract accounts.
 
+6. The error returned from the k.bankKeeper.SendCoinsFromModuleToAccount function is not descriptive enough
+
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L251-L261
+
+
+7. The following code may be refactored for better readability purpose
+
+`if ok := balanceCoinAfter.IsEqual(expCoin); !ok {
+		return nil, errorsmod.Wrapf(
+			types.ErrBalanceInvariance,
+			"invalid coin balance - expected: %v, actual: %v",
+			expCoin, balanceCoinAfter,
+		)
+	}`
+
+https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/erc20/keeper/msg_server.go#L405-L411
+
+It could be refactored this way:
+
+`if !balanceCoinAfter.IsEqual(expCoin) {
+    return nil, errorsmod.Wrapf(
+        types.ErrBalanceInvariance,
+        "invalid coin balance - expected: %v, actual: %v",
+        expCoin, balanceCoinAfter,
+    )
+}`
+
 
 
