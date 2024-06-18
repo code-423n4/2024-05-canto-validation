@@ -1,11 +1,13 @@
+
+
+
+# L-01: **Missing zero length initialization in function GetStoreKeys()**
+
+
 # Lines of code
 
 https://github.com/code-423n4/2024-05-canto/blob/main/ethermint-main/app/app.go#L975-L982
 https://github.com/code-423n4/2024-05-canto/blob/main/canto-main/app/app.go#L1153-L1161
-
-
-## Summary
-Missing zero length initialization in function GetStoreKeys()
 
 ## Vulnerability Detail
 In app.go files of Canto and Ethermint app, GetStoreKeys is being used to return all the stored store keys.
