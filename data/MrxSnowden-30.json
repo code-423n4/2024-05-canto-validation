@@ -1,0 +1,8 @@
+{
+  "contest": 385,
+  "handle": "MrxSnowden",
+  "risk": "2",
+  "title": "Improper Handling of Multiple Extension Options in Cosmos SDK AnteHandler",
+  "issueId": 30,
+  "issueUrl": "https://github.com/code-423n4/2024-05-canto-validation/issues/30"
+}
