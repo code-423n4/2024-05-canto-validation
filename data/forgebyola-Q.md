@@ -108,7 +108,7 @@ Why not of considerable impact, this indicates there may be lack of functionalit
 | [L-06] | The previous method of KVStore using store keys is still being implemented |
 - Lines of Code:  https://github.com/code-423n4/2024-05-canto/blob/d1d51b2293d4689f467b8b1c82bba84f8f7ea008/canto-main/x/coinswap/keeper/keeper.go#L193
 #### Impact
-One of the main changes from cosmos 0.4.x to cosmos 0.5.x is the updated way of using KVStore which involves use of kvStoreservice instead of store keys.
+One of the main changes from cosmos 0.4.x to cosmos 0.50.x is the updated way of using KVStore which involves use of kvStoreservice instead of store keys.
 
 https://github.com/cosmos/cosmos-sdk/blob/v0.50.6/UPGRADING.md#module-wiring
 This is also noted within the contest README
