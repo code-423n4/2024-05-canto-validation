@@ -1,0 +1,8 @@
+{
+  "contest": 385,
+  "handle": "MrxSnowden",
+  "risk": "2",
+  "title": "The Sign method in the MsgEthereumTx structure does not verify if the sender address is registered on the keyring before signing the transaction. This omission could lead to unauthorized transactions being signed and executed.",
+  "issueId": 33,
+  "issueUrl": "https://github.com/code-423n4/2024-05-canto-validation/issues/33"
+}
