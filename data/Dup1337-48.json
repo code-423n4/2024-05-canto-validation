@@ -4,5 +4,7 @@
   "risk": "Q",
   "title": "QA Report",
   "issueId": 48,
-  "issueUrl": "https://github.com/code-423n4/2024-05-canto-validation/issues/48"
+  "issueUrl": "https://github.com/code-423n4/2024-05-canto-validation/issues/48",
+  "validatedIssueId": 33,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-canto-findings/issues/33"
 }
