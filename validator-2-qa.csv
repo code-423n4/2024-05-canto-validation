@@ -1,0 +1,13 @@
+issue,title,validator comment,grade,size,Best
+validation-50,QA Report,"No links, bad format",Unsatisfactory,1,
+validation-48,QA Report,"Highest number of valid issues, has dups of some Meds so recheck",Satisfactory,1,★★★
+validation-47,QA Report,,Satisfactory,1,★✰✰
+validation-22,QA Report,"Only 1 issue, insufficient in comparison to others",Unsatisfactory,1,
+validation-18,QA Report,,Satisfactory,1,
+validation-13,QA Report,"GPT nonsense, no links",Unsatisfactory,1,
+validation-6,QA Report,GPT nonsense,Unsatisfactory,1,
+findings-12,QA Report,Second best with impactful findings,Satisfactory,1,★★✰
+validation-52,QA Report,"GPT generated, most are invalid",Unsatisfactory,1,
+validation-14,QA Report,,Satisfactory,1,
+validation-9,QA Report,GPT generated,Unsatisfactory,1,
+validation-8,QA Report,"Bad format, most issues are NC",Unsatisfactory,1,
